@@ -1,0 +1,206 @@
+import React, { useState, useEffect } from 'react'
+import '../css/painel/listagem.css'
+import '../css/estilos-gerais.css'
+import { MdPerson, MdSettingsPower } from 'react-icons/md'
+import logoImg from '../../img/logo.svg'
+import market from '../../img/market.svg'
+import logoIF from '../../img/ifLogo.png'
+import { Link } from 'react-router-dom'
+
+import api from '../../services/api'
+
+export default function Perfil() {
+    const [empresas, setEmpresas] = useState([])
+
+   async function loadEmpresas()
+   {
+       const response = await api.get('/empresas')
+       setEmpresas(response.data)
+   }
+
+   useEffect( () => 
+   { 
+       loadEmpresas()
+   }, [])
+   
+
+    return (
+        <div>
+            <header>
+                <section className="market-topo">
+                    <div className="row align-justify">
+                        <div className="columns small-6 large-3">
+                            <Link to="/">
+                                <img src={logoImg} alt=""/>
+                            </Link>
+                        </div>
+                        <div className="columns-small-3-flex-container-align-middle-align-justify">
+                            <div className="">
+                                <Link to="/cadastrar" >
+                                    <MdPerson size={45} color="#FFF" style={{marginTop: 15}}/>
+                                </Link>
+                            </div>
+                            <div className="icons">
+                                <Link to="/" >
+                                    <MdSettingsPower size={45} color="#FFF" style={{marginTop: 15}}/>
+                                </Link>
+                            </div> 
+                        </div>
+                    </div>
+                </section>
+            </header>
+            <main className="market">
+                <div className="row align-center">
+                    <div className="columns small-10">
+
+                        <div className="filtros">
+                            <p className="filtro-text">
+                                Filtros:
+                            </p>
+                            <ul className="filtros-container">
+                                <li href="" className="filtros-container-item">
+                                    <span>Estado</span>
+                                
+                                    <i className="material-icons">arrow_drop_down</i>
+                                    <ul className="filtros-container-sub">
+                                        <li className="filtros-container-sub-item">AC</li>
+                                        <li className="filtros-container-sub-item">AL</li>
+                                        <li className="filtros-container-sub-item">AP</li>
+                                        <li className="filtros-container-sub-item">AM</li>
+                                        <li className="filtros-container-sub-item">BA</li>
+                                        <li className="filtros-container-sub-item">CE</li>
+                                        <li className="filtros-container-sub-item">DF</li>
+                                        <li className="filtros-container-sub-item">ES</li>
+                                        <li className="filtros-container-sub-item">GO</li>
+                                        <li className="filtros-container-sub-item">MA</li>
+                                        <li className="filtros-container-sub-item">MT</li>
+                                        <li className="filtros-container-sub-item">MS</li>
+                                        <li className="filtros-container-sub-item">MG</li>
+                                        <li className="filtros-container-sub-item">PA</li>
+                                        <li className="filtros-container-sub-item">PB</li>
+                                        <li className="filtros-container-sub-item">PR</li>
+                                        <li className="filtros-container-sub-item">PE</li>
+                                        <li className="filtros-container-sub-item">PI</li>
+                                        <li className="filtros-container-sub-item">RJ</li>
+                                        <li className="filtros-container-sub-item">RN</li>
+                                        <li className="filtros-container-sub-item">RS</li>
+                                        <li className="filtros-container-sub-item">RO</li>
+                                        <li className="filtros-container-sub-item">RR</li>
+                                        <li className="filtros-container-sub-item">SC</li>
+                                        <li className="filtros-container-sub-item">SP</li>
+                                        <li className="filtros-container-sub-item">SE</li>
+                                        <li className="filtros-container-sub-item">TO</li>
+                                    </ul>
+                                </li>
+                                <li href="/empresas" className="filtros-container-item">
+                                    <span>Cidade</span>
+                                    <i className="material-icons">arrow_drop_down</i>
+                                </li>
+                                <li href="/empresas" className="filtros-container-item">
+                                    <span>Tipo</span>
+                                    <i className="material-icons">arrow_drop_down</i>
+                                    <ul className="filtros-container-sub">
+                                        <li className="filtros-container-sub-item">Empresas</li>
+                                        <li className="filtros-container-sub-item">Serviços</li>
+                                    </ul>
+                                </li>
+                                <li href="/empresas" className="filtros-container-item">
+                                    <span>Categoria</span>
+                                    <i className="material-icons">arrow_drop_down</i>
+                                    <ul className="filtros-container-sub">
+                                        <li className="filtros-container-sub-item">Açaíteria</li>
+                                        <li className="filtros-container-sub-item">Açougue</li>
+                                        <li className="filtros-container-sub-item">Água</li>
+                                        <li className="filtros-container-sub-item">Cosmético</li>
+                                        <li className="filtros-container-sub-item">Eletrônicos</li>
+                                        <li className="filtros-container-sub-item">Fármacia</li>
+                                        <li className="filtros-container-sub-item">Informática</li>
+                                        <li className="filtros-container-sub-item">Marmitaria</li>
+                                        <li className="filtros-container-sub-item">Padaria</li>
+                                        <li className="filtros-container-sub-item">Papelaria</li>
+                                        <li className="filtros-container-sub-item">Restaurante</li>
+                                        <li className="filtros-container-sub-item">Saúde</li>
+                                        <li className="filtros-container-sub-item">Supermercado</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <div className="filtros-selecionados">
+                        </div>
+
+                    </div>
+                </div>
+                <ul className="row">
+                    {empresas.map(informacoes => (
+                        <li className="columns small-6 large-4">
+                            <div className="box-empresa">
+                                <div className="text-center">
+                                    <img src={market} alt=""/>
+                                </div>
+                                <p className="text-center box-empresa-nome">{informacoes.name}</p>
+                                <p className="box-empresa-cidade">{informacoes.city} - {informacoes.uf}</p>
+                                <p className="box-empresa-endereco">{informacoes.endereco}</p>
+                                <div className="box-empresa-categoria">
+                                    <div className="box-empresa-categoria-item">
+                                        <span>{informacoes.tipo_empresa}</span>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </li>
+                    ))}
+                    
+                   
+                </ul>
+                <div className="row align-right">
+                    <div className="columns small-12 large-4">
+                        <div className="box-paginacao">
+                            <div className="paginacao-item">
+                                <i className="material-icons">
+                                    skip_previous
+                                </i>
+                            </div>
+                            <div className="paginacao-item">
+                                <i className="material-icons">
+                                    arrow_left
+                                </i>
+                            </div>
+                            <div className="paginacao-item">
+                                <span>1</span>
+                            </div>
+                            <div className="paginacao-item">
+                                <span>2</span>
+                            </div>
+                            <div className="paginacao-item">
+                                <span>3</span>
+                            </div>
+                            <div className="paginacao-item">
+                                <i className="material-icons">
+                                    arrow_right
+                                </i>
+                            </div>
+                            <div className="paginacao-item">
+                                <i className="material-icons">
+                                    skip_next
+                                </i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </main>
+            <footer>
+                <div className="row">
+                    <div className="columns small-12">
+                        <div className="market-footer">
+                            <p className="market-footer-p">Desenvolvido pela equipe Inova Tecno - com apoio do IFSP -INSTITUTO FEDERAL DE EDUCAÇÃO CIÊNCIA E TECNOLOGIA DE SÃO PAULO
+                            </p>
+                            <img src={logoIF} alt=""/>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    )
+
+}

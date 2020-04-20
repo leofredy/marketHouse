@@ -1,0 +1,92 @@
+body{
+  font-family: 'Roboto', sans-serif;
+  color: #000;
+  background-color: #F0F0F5;
+}
+.market{
+  padding: 105px 0px 102px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+}
+section{
+  width: 100%;
+}
+footer{
+  background-color: #fff;
+}
+.market-topo{
+  background-color: #4FC3F7;
+  padding: 15px 0;
+}
+.market-topo-entrar{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 265px;
+  height: 50px;
+}
+.market-topo-entrar-link{
+  border-radius: 4px;
+  background-color: #fff;
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 11.5px 0px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #4FC3F7;
+}
+.market-topo-entrar-link:hover{
+  background-color: #4AB5E6;
+  color: #fff;
+}
+.market-form-label{
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+.market-form-label i{
+  margin-left: 10px;
+}
+.market-form-input{
+  border: 1px solid #D9D9D9;
+  border-radius: 2px;
+}
+.market-form-input::placeholder{
+  font-style: italic;
+  font-size: 12px;
+  color: #707070;
+}
+.market-form-input:focus{
+  box-shadow: 0 3px 6px rgba( 0, 0, 0, 0.2);
+  transition: box-shadow 0.5s, border-color 0.25s ease-in-out;
+}
+.market-form-box-login{
+  margin-bottom: 30px;
+}
+.market-footer-p{
+  font-size: 12px;
+  text-align: center;
+  margin: 0;
+  line-height: 1;
+}
+.market-footer{
+  padding: 5px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.market-footer img{
+  flex: 0 0 auto;
+}
+.row{
+  width: 100%;
+}
+@media (max-width: 1023px) {
+  .market{
+    padding: 12px 0 30px;
+  }
+}
