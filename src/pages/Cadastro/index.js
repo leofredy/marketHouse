@@ -110,7 +110,7 @@ export default function Cadastro()
                             storefront
                         </i>
                         </label>
-                        <input type="text" placeholder="Digite seu CPJ ou CNPJ" className="market-form-input" value={name} onChange={ e => setName(e.target.value)} />
+                        <input type="text" placeholder="EMPRESA EXEMPLAR - ME" className="market-form-input" value={name} onChange={ e => setName(e.target.value)} />
                     </div>
                     <div className="market-form-container">
                         <div className="market-form-box-cadastro">
@@ -120,7 +120,7 @@ export default function Cadastro()
                             account_circle
                             </i>
                         </label>
-                        <input type="text" placeholder="Digite seu o CPJ da empresa" className="market-form-input" value={cnpj} onChange={e => setCNPJ(e.target.value)} />
+                        <input type="text" placeholder="Digite seu o CNPJ da empresa" className="market-form-input" value={cnpj} onChange={e => setCNPJ(e.target.value)} />
                         </div>
                         <div className="market-form-box-cadastro">
                         <label className="market-form-label">
@@ -140,7 +140,7 @@ export default function Cadastro()
                             room
                             </i>
                         </label>
-                        <input type="text" placeholder="Nº da casa, rua" className="market-form-input market-form-input-medio" value={endereco} onChange={e =>setEndereco(e.target.value)} />
+                        <input type="text" placeholder="Rua, nº - Bairro" className="market-form-input market-form-input-medio" value={endereco} onChange={e =>setEndereco(e.target.value)} />
                         </div>
                         <div className="market-form-box-cadastro">
                         <label className="market-form-label">
@@ -149,7 +149,7 @@ export default function Cadastro()
                             room
                             </i>
                         </label>
-                        <input type="text" placeholder="açaiteria, hambuergueria, etc.." className="market-form-input market-form-input-medio" value={city} onChange={e =>setCity(e.target.value)} />
+                        <input type="text" placeholder="Digite a cidade" className="market-form-input market-form-input-medio" value={city} onChange={e =>setCity(e.target.value)} />
                         </div>
                         <div className="market-form-box-cadastro">
                         <label className="market-form-label">
@@ -190,7 +190,7 @@ export default function Cadastro()
                         <label className="market-form-label">
                             <span>Horário de funcionamento:</span>
                         </label>
-                        <textarea name="name" rows="2" cols="80" className="market-form-textArea" value={horario} onChange={e =>setHorario(e.target.value)} >Seg - Sex: 07:00 às 17:30 Sab - Dom: 08:00 às 16:30</textarea>
+                        <textarea name="name" rows="2" cols="80" placeholder="Seg a Sex: 7h às 17:30 " className="market-form-input" value={horario} onChange={e =>setHorario(e.target.value)} >Seg - Sex: 07:00 às 17:30 Sab - Dom: 08:00 às 16:30</textarea>
                         </div>
                     </div>
                     <div className="market-form-container">
@@ -198,7 +198,7 @@ export default function Cadastro()
                         <label className="market-form-label">
                             <span>Descrição curta: </span>
                         </label>
-                        <textarea name="name" rows="2" cols="80" className="market-form-textArea" value={descricao} onChange={e =>setDescricao(e.target.value)} >Descreva em poucas palavras sua empresa</textarea>
+                        <textarea name="name" rows="2" cols="80" placeholder="Objetivo da empresa" className="market-form-input" value={descricao} onChange={e =>setDescricao(e.target.value)} >Descreva em poucas palavras sua empresa</textarea>
                         </div>
                     </div>
                     <div className="">

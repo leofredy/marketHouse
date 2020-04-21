@@ -57,8 +57,8 @@ export default function Home()
                     </div>
                 </section>
             </header>
-            <div className="market">
-                <section>
+            <div className="market-main">
+                <section >
                     <div className="row">
                         <div className="columns small-12 large-6">
                             <div className="market-left">
@@ -71,12 +71,12 @@ export default function Home()
                                 <div className="market-form-login">
                                     <div className="market-form-box-login">
                                         <label className="market-form-label">
-                                            <span>CPF/CNPJ</span>
+                                            <span>CNPJ</span>
                                             <i className="material-icons">
                                                 account_circle
                                             </i>
                                         </label>
-                                        <input type="text" placeholder="Digite seu CPJ ou CNPJ" className="market-form-input" value={cnpj} onChange={ e => setCNPJ(e.target.value)} />
+                                        <input type="text" placeholder="Digite seu CNPJ" className="market-form-input" value={cnpj} onChange={ e => setCNPJ(e.target.value)} />
                                     </div>
                                     <div className="">
                                         <label className="market-form-label">

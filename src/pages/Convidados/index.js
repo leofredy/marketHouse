@@ -11,6 +11,7 @@ import api from '../../services/api'
 
 export default function Perfil() {
     const [empresas, setEmpresas] = useState([])
+    let next = 4
 
    async function loadEmpresas()
    {
@@ -23,6 +24,46 @@ export default function Perfil() {
        loadEmpresas()
    }, [])
    
+   
+    async function loadPagina1()
+    {
+        const response = await api.get('/empresas?page=1')
+        setEmpresas(response.data)
+    }
+    async function loadPagina2()
+    {
+        const response = await api.get('/empresas?page=2')
+        setEmpresas(response.data)
+    }
+    async function loadPagina3()
+    {
+        const response = await api.get('/empresas?page=3')
+        setEmpresas(response.data)
+    }
+    async function loadPaginaNext()
+    {
+        next +=1
+        const response = await api.get(`/empresas?page=${next}`)
+        setEmpresas(response.data)
+    }
+    async function loadPaginaVolta()
+    {
+        next -= 1
+        const response = await api.get(`/empresas?page=${next}`)
+        setEmpresas(response.data)
+    }
+    async function loadPaginaNext2()
+    {
+        next += 2
+        const response = await api.get(`/empresas?page=${next}`)
+        setEmpresas(response.data)
+    }
+    async function loadPaginaVolta2()
+    {
+        next -= 2
+        const response = await api.get(`/empresas?page=${next}`)
+        setEmpresas(response.data)
+    }
 
     return (
         <div>
@@ -155,35 +196,35 @@ export default function Perfil() {
                 <div className="row align-right">
                     <div className="columns small-12 large-4">
                         <div className="box-paginacao">
-                            <div className="paginacao-item">
+                            <button onClick={loadPaginaVolta2} className="paginacao-item">
                                 <i className="material-icons">
                                     skip_previous
                                 </i>
-                            </div>
-                            <div className="paginacao-item">
+                            </button>
+                            <button onClick={loadPaginaVolta} className="paginacao-item">
                                 <i className="material-icons">
                                     arrow_left
                                 </i>
-                            </div>
-                            <div className="paginacao-item">
+                            </button>
+                            <button onClick={loadPagina1} className="paginacao-item">
                                 <span>1</span>
-                            </div>
-                            <div className="paginacao-item">
+                            </button>
+                            <button onClick={loadPagina2} className="paginacao-item">
                                 <span>2</span>
-                            </div>
-                            <div className="paginacao-item">
+                            </button>
+                            <button onClick={loadPagina3} className="paginacao-item">
                                 <span>3</span>
-                            </div>
-                            <div className="paginacao-item">
+                            </button>
+                            <button onClick={loadPaginaNext} className="paginacao-item">
                                 <i className="material-icons">
                                     arrow_right
                                 </i>
-                            </div>
-                            <div className="paginacao-item">
+                            </button>
+                            <button onClick={loadPaginaNext2} className="paginacao-item">
                                 <i className="material-icons">
                                     skip_next
                                 </i>
-                            </div>
+                            </button>
                         </div>
                     </div>
                 </div>

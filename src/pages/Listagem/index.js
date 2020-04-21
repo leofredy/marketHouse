@@ -20,7 +20,7 @@ export default function Perfil() {
     {
         const response = await api.get('/empresas')
         setEmpresas(response.data)
-        console.log(response.data)
+        console.log(response.headers['totalempresas'])
     }
     async function loadPagina1()
     {
